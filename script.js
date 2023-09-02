@@ -19,11 +19,15 @@ const postCategory = async () => {
 }
 
 const categoryType = async (category_id) => {
-    console.log(category_id)
+    // console.log(category_id)
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${category_id}`)
     const data = await response.json();
-    const dataEmpty = data.data
-    //console.log(data.data)
+    //const dataEmpty = data.data
+    // console.log(data.data.length)
+
+    // if (data.data.length = 0) {
+    //     console.log('empty')
+    // }
 
 
     const cardContainer = document.getElementById('card_container')
@@ -31,6 +35,7 @@ const categoryType = async (category_id) => {
     //      <img class="w-4" src="badge.png" alt=""> 
 
     data.data.forEach((videos) => {
+
 
         const badge = videos.authors[0].verified ? '<img class="w-4" src="badge.png" alt="">' : "";
         // console.log(videos)
